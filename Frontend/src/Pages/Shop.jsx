@@ -22,7 +22,6 @@ const Shop = () => {
   useEffect(() => {
     fetchInfo();
   }, []);
-
   return (
     <div>
       <Hero />

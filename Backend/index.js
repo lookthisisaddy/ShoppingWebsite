@@ -11,6 +11,7 @@ const BASE_URL = process.env.BASE_URL
 
 app.use(express.json());
 app.use(cors());
+
 // Database Connection With MongoDB
 const DB = process.env.DATABASE
 mongoose.connect(DB);
@@ -211,7 +212,7 @@ app.post('/removefromcart', fetchuser, async (req, res) => {
 app.post('/getcart', fetchuser, async (req, res) => {
     console.log("Get Cart");
     let userData = await Users.findOne({ _id: req.user.id });
-    res.json(userData.cartData);
+    res.json(userData && userData.cartData);
 
 })
 
